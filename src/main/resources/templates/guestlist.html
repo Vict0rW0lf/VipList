@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Guest list</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div id="guestList">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+					</tr>
+				</thead>
+				<tr th:each="guest : ${guests}">
+					<td><span th:text="${guest.name}"></span></td>
+					<td><span th:text="${guest.email}"></span></td>
+					<td><span th:text="${guest.phone}"></span></td>
+				</tr>
+			</table>
+		</div>
+		
+		<hr/>
+		<form action="save" method="post">
+		    <div class="form-group">
+		        <label for="name">Name</label> 
+		        <input type="text" class="form-control" id="name" name="name" placeholder="Name"/>
+		    </div>
+		    <div class="form-group">
+		        <label for="email">E-mail</label> 
+		        <input type="email" class="form-control" id="email" name="email" placeholder="Email"/>
+		    </div>
+		    <div class="form-group">
+		        <label for="phone">Phone</label> 
+		        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone"/>
+		    </div>
+		    <button type="submit" class="btn btn-success">Invite</button>
+		</form>
+		
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
